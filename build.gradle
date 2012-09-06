@@ -1,8 +1,10 @@
 apply plugin: 'java'
+apply plugin: 'eclipse'
 apply plugin: 'idea'
+apply plugin: 'maven'
 
 group = 'com.widen'
-version = '1.0'
+version = '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.5
 targetCompatibility = 1.5
@@ -11,8 +13,12 @@ repositories {
     mavenCentral()
 }
 
-configurations {
-    
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: 'https://widen.artifactoryonline.com/widen/libs-widen-public') {
+            authentication(userName: USER, password: PASSWORD)
+        }
+    }
 }
 
 dependencies {
@@ -29,16 +35,21 @@ sourceSets {
         java.srcDirs = files('src/main/java')
         output.classesDir = file('bin')
     }
-    test {
-        java.srcDirs = files('src/test/java')
-        output.classesDir = file('bintest')
-    }
 }
 
-test {
-    useTestNG()
-
-    options.suites('src/test/conf/testng.xml')
-
-    enableAssertions = true
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
 }
+
+artifacts {
+    archives sourcesJar
+}
+
+eclipse {
+    classpath.containers = [ 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.5' ]
+}
+
+tasks.eclipse.dependsOn = [ cleanEclipseClasspath, eclipseClasspath ]
+
+tasks.idea.dependsOn = [ cleanIdeaModule, ideaModule ]

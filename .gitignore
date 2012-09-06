@@ -3,3 +3,4 @@ out/
 profiler.iws
 profiler.iml
 profiler.ipr
+gradle.properties
