@@ -1,128 +1,145 @@
-.profiler .fLeft {
+body {
+    color: #525050;
+    font-family: Arial;
+    font-size: 12px;
+}
+
+h1 {
+    font-size: 22px;
+    margin: 0.5em 0 0.5em 0.3em;
+}
+
+h2 {
+    font-size: 16px;
+    margin: 0.7em 0 0.3em;
+}
+
+table {
+    border-spacing: 0;
+}
+
+th {
+    text-align: left;
+}
+
+.fLeft {
     float: left;
 }
 
-.profiler .pr50 {
+.pr50 {
     padding-right: 50px;
 }
 
-.profiler .pt13 {
+.pt13 {
     padding-top: 13px;
 }
 
-.profiler .pr100 {
+.pr100 {
     padding-right: 100px;
 }
 
-.profiler .pt10 {
+.pt10 {
     padding-top: 10px;
 }
 
-.profiler .pr30 {
+.pr30 {
     padding-right: 30px;
 }
 
-.profiler .ml5 {
+.ml5 {
     margin-left: 5px;
 }
 
-.profiler .pt2 {
+.pt2 {
     padding-top: 2px;
 }
 
-.profiler .mb15 {
+.mb15 {
     margin-bottom: 15px;
 }
 
-.profiler .ml10 {
+.ml10 {
     margin-left: 10px;
 }
 
-.profiler .w15 {
+.w15 {
     width: 15px;
 }
 
-.profiler .h15 {
+.h15 {
     height: 15px;
 }
 
-.profiler .w48p {
+.w48p {
     width: 48%;
 }
 
-.profiler .w100p {
+.w100p {
     width: 100%;
 }
 
-.profiler .blueHlBg {
+.blueHlBg {
     background-color: #bbffff;
 }
 
-.profiler .greenBg {
+.greenBg {
     background-color: #aaffaa;
 }
 
-.profiler .yellowBg {
+.yellowBg {
     background-color: #fffecd;
 }
 
-.profiler .b_999 {
+.b_999 {
     border: 1px solid #999999;
 }
 
-.profiler .clear {
+.clear {
     clear: both;
 }
 
-.profiler .simpleTable /*for ie7*/
+.simpleTable /*for ie7*/
 {
-    border-right: 1px solid #777676;
     line-height: 16px;
 }
 
-.profiler .simpleTable caption
+.simpleTable caption
 {
     text-align: left;
     font-style: normal;
     padding:0px 0px 4px;
 }
-.profiler .simpleTable thead,
-.profiler .simpleTable tbody,
-.profiler .simpleTable .borderClass,
-.profiler table.borderClass /* for ie7 */
+.simpleTable thead,
+.simpleTable tbody,
+.simpleTable .borderClass,
+table.borderClass /* for ie7 */
 {
     border: 1px solid #777676;
 }
-.profiler .simpleTable th
+.simpleTable th
 {
     background: #6E6D6D;
     line-height: 22px;
 }
-.profiler .simpleTable th, .simpleTable td
-{
-    border-left: 1px solid #777676;
-    text-align: center;
-    font-size: 11px !important;
-}
-.profiler .simpleTable td.selectAll
+.simpleTable td.selectAll
 {
     text-align: right;
     border: none;
     border-top: 1px solid #777676;
 }
 
-.profiler .simpleTable tbody td
+.simpleTable tbody td
 {
     vertical-align: top;
     padding-top: 13px;
 }
-.profiler .simpleTable tbody td label,
-.profiler .simpleTable tbody td span.requiredLabel
+.simpleTable tbody td label,
+.simpleTable tbody td span.requiredLabel
 {
     text-align: left;
 }
 
-.profiler table.altRows td
+table.altRows td
 {
     color: #797777;
     padding: 4px 10px;
@@ -130,27 +147,27 @@
     letter-spacing: 1px;
     vertical-align: middle;
 }
-.profiler table.altRows tr.row0 td
+table.altRows tr.row0 td
 {
     background-color: #f4f4f4;
 }
-.profiler table.altRows tr.row1 td
+table.altRows tr.row1 td
 {
     background-color: white;
 }
-.profiler table.altRows tr td.mp_label
+table.altRows tr td.mp_label
 {
     color: #9d9d9d;
     font-size: 10px;
     width: 100%;
 }
-.profiler table.altRows tr td.mp_value
+table.altRows tr td.mp_value
 {
     color: #333333;
     font-weight: bold;
     font-size: 10px;
 }
-.profiler table.altRows th
+table.altRows th
 {
     background-color: #797777;
     color: white;

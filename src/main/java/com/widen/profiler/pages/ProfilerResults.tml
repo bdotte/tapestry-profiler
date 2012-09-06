@@ -10,99 +10,99 @@
 
 <body>
 
-    <div class="profiler">
-        <div class="fLeft pr50">
-            <h1>Profiler Results</h1>
-        </div>
-        <div class="fLeft pt13 pr100">
-            <t:form t:id="options" zone="resultsZone" autofocus="false">
-                <t:checkbox t:id="hideUninterestingLines" onchange="$('${options.clientId}').fire(Tapestry.FORM_PROCESS_SUBMIT_EVENT);"/>
-                <t:label for="hideUninterestingLines" />
-            </t:form>
-        </div>
-        <div class="fLeft pt10 pr30">
-            <div class="fLeft blueHlBg b_999 w15 h15"></div><div class="fLeft ml5 pt2">Page</div>
-        </div>
-        <div class="fLeft pt10 pr30">
-            <div class="fLeft greenBg b_999 w15 h15"></div><div class="fLeft ml5 pt2">Component</div>
-        </div>
-        <div class="fLeft pt10 pr100">
-            <div class="fLeft yellowBg b_999 w15 h15"></div><div class="fLeft ml5 pt2">DAO</div>
-        </div>
-        <br class="clear" />
-
-        <t:zone t:id="resultsZone">
-            <t:if test="hasPageCounts">
-                <div class="fLeft w48p">
-                    <h2>Pages</h2>
-
-                    <t:loop source="pageNames" value="pageName">
-                        <strong>${pageName}</strong>
-                        <table class="simpleTable altRows mb15 w100p">
-                            <thead>
-                            <tr>
-                                <th>Time (ms)</th>
-                                <th>Class, Method, Line</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <t:loop source="getSortedPageCounts(pageName)" value="sortedCount" index="rowIndex">
-                                <tr class="${rowCss}">
-                                    <td>${time}</td>
-                                    <td>${getSeparatedClassInfo(sortedCount.key)}</td>
-                                </tr>
-                            </t:loop>
-                            </tbody>
-                        </table>
-                    </t:loop>
-                </div>
-            </t:if>
-            <t:if test="hasJobCounts">
-                <div class="fLeft w48p ml10">
-                    <h2>Jobs</h2>
-
-                    <t:loop source="jobNames" value="jobName">
-                        <strong>${jobName}</strong>
-                        <table class="simpleTable altRows mb15 w100p">
-                            <thead>
-                            <tr>
-                                <th>Time (ms)</th>
-                                <th>Class, Method, Line</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <t:loop source="getSortedJobCounts(jobName)" value="sortedCount" index="rowIndex">
-                                <tr class="${rowCss}">
-                                    <td>${time}</td>
-                                    <td>${getSeparatedClassInfo(sortedCount.key)}</td>
-                                </tr>
-                            </t:loop>
-                            </tbody>
-                        </table>
-                    </t:loop>
-                </div>
-            </t:if>
-            <br class="clear" />
-            <br />
-
-            <h2>Overall</h2>
-            <table class="simpleTable altRows mb15 w100p">
-                <thead>
-                <tr>
-                    <th>Time (ms)</th>
-                    <th>Class, Method, Line</th>
-                </tr>
-                </thead>
-                <tbody>
-                <t:loop source="sortedOverallCounts" value="sortedCount" index="rowIndex">
-                    <tr class="${rowCss}">
-                        <td>${time}</td>
-                        <td>${getSeparatedClassInfo(sortedCount.key)}</td>
-                    </tr>
-                </t:loop>
-                </tbody>
-            </table>
-        </t:zone>
+    <div class="fLeft pr50">
+        <h1>Profiler Results</h1>
     </div>
+    <div class="fLeft pt13 pr100">
+        <t:form t:id="options" zone="resultsZone" autofocus="false">
+            <t:checkbox t:id="hideUninterestingLines" onchange="$('${options.clientId}').fire(Tapestry.FORM_PROCESS_SUBMIT_EVENT);"/>
+            <t:label for="hideUninterestingLines" />
+        </t:form>
+    </div>
+    <div class="fLeft pt10 pr30">
+        <div class="fLeft blueHlBg b_999 w15 h15"></div><div class="fLeft ml5 pt2">Page</div>
+    </div>
+    <div class="fLeft pt10 pr30">
+        <div class="fLeft greenBg b_999 w15 h15"></div><div class="fLeft ml5 pt2">Component</div>
+    </div>
+    <div class="fLeft pt10 pr100">
+        <div class="fLeft yellowBg b_999 w15 h15"></div><div class="fLeft ml5 pt2">DAO</div>
+    </div>
+    <br class="clear" />
+
+    <t:zone t:id="resultsZone">
+        <t:if test="hasPageCounts">
+            <div class="fLeft w48p">
+                <h2>Pages</h2>
+
+                <t:loop source="pageNames" value="pageName">
+                    <strong>${pageName}</strong>
+                    <table class="simpleTable altRows mb15 w100p">
+                        <thead>
+                        <tr>
+                            <th>Time (ms)</th>
+                            <th>Class, Method, Line</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <t:loop source="getSortedPageCounts(pageName)" value="sortedCount" index="rowIndex">
+                            <tr class="${rowCss}">
+                                <td>${time}</td>
+                                <td>${getSeparatedClassInfo(sortedCount.key)}</td>
+                            </tr>
+                        </t:loop>
+                        </tbody>
+                    </table>
+                </t:loop>
+            </div>
+        </t:if>
+        <t:if test="hasJobCounts">
+            <div class="fLeft w48p ml10">
+                <h2>Jobs</h2>
+
+                <t:loop source="jobNames" value="jobName">
+                    <strong>${jobName}</strong>
+                    <table class="simpleTable altRows mb15 w100p">
+                        <thead>
+                        <tr>
+                            <th>Time (ms)</th>
+                            <th>Class, Method, Line</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <t:loop source="getSortedJobCounts(jobName)" value="sortedCount" index="rowIndex">
+                            <tr class="${rowCss}">
+                                <td>${time}</td>
+                                <td>${getSeparatedClassInfo(sortedCount.key)}</td>
+                            </tr>
+                        </t:loop>
+                        </tbody>
+                    </table>
+                </t:loop>
+            </div>
+        </t:if>
+        <br class="clear" />
+        <br />
+
+        <h2>Overall</h2>
+        <table class="simpleTable altRows mb15 w100p">
+            <thead>
+            <tr>
+                <th>Time (ms)</th>
+                <th>Class, Method, Line</th>
+            </tr>
+            </thead>
+            <tbody>
+            <t:loop source="sortedOverallCounts" value="sortedCount" index="rowIndex">
+                <tr class="${rowCss}">
+                    <td>${time}</td>
+                    <td>${getSeparatedClassInfo(sortedCount.key)}</td>
+                </tr>
+            </t:loop>
+            </tbody>
+        </table>
+    </t:zone>
 
 </body>
+
+</html>

@@ -33,6 +33,7 @@ dependencies {
 sourceSets {
     main {
         java.srcDirs = files('src/main/java')
+        resources.srcDirs = files('src/main/java')
         output.classesDir = file('bin')
     }
 }
@@ -53,3 +54,9 @@ eclipse {
 tasks.eclipse.dependsOn = [ cleanEclipseClasspath, eclipseClasspath ]
 
 tasks.idea.dependsOn = [ cleanIdeaModule, ideaModule ]
+
+jar {
+    manifest {
+        attributes 'Tapestry-Module-Classes': 'com.widen.profiler.ProfilerModule'
+    }
+}
