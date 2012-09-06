@@ -1,3 +1,5 @@
 .gradle/
 out/
 profiler.iws
+profiler.iml
+profiler.ipr
