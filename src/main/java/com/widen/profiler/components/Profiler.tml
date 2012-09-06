@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
+
+    <div id="profilerDiv">
+        <div style="float: left; padding-right: 60px;">
+            <t:zone t:id="profilerZone" update="show">
+                <a href="javascript:void(0);" event="toggleProfiling" zone="profilerZone" style="text-decoration: none;" onclick="$$('.profilerOptionsForm')[0].fire(Tapestry.FORM_PROCESS_SUBMIT_EVENT);">
+					<span style="font-weight: bold;">
+						<t:if test="profiling">
+                            <img src="${asset:stopbutton.png}" />${profileLinkText}
+                            <p:else>
+                                <img src="${asset:playbutton.png}" />${profileLinkText}
+                            </p:else>
+                        </t:if>
+					</span>
+                </a>
+            </t:zone>
+        </div>
+        <div style="float: left; padding-top: 4px;">
+            <t:form t:id="options" class="profilerOptionsForm" zone="profilerZone" autofocus="false">
+                <t:checkbox t:id="ignoreJobs" value="profilerState.ignoreJobs"/>
+                <t:label class="white" for="ignoreJobs" />
+            </t:form>
+        </div>
+    </div>
+
+</t:container>

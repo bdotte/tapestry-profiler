@@ -1,0 +1,44 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+group = 'com.widen'
+version = '1.0'
+
+sourceCompatibility = 1.5
+targetCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    
+}
+
+dependencies {
+
+    compile 'commons-lang:commons-lang:2.5'
+
+    ext.tapestryVersion = '5.3.5'
+    compile 'org.apache.tapestry:tapestry-core:' + tapestryVersion
+    
+}
+
+sourceSets {
+    main {
+        java.srcDirs = files('src/main/java')
+        output.classesDir = file('bin')
+    }
+    test {
+        java.srcDirs = files('src/test/java')
+        output.classesDir = file('bintest')
+    }
+}
+
+test {
+    useTestNG()
+
+    options.suites('src/test/conf/testng.xml')
+
+    enableAssertions = true
+}
