@@ -19,6 +19,7 @@ public class ProfilerModule
 	public static void contributeFactoryDefaults(MappedConfiguration<String, String> configuration)
 	{
 		configuration.add(ProfilerSymbols.APPLICATION_PACKAGE, "");
+		configuration.add(ProfilerSymbols.MONITOR_JOBS, "false");
 		configuration.add(ProfilerSymbols.POLLING_INTERVAL, "10");
 		configuration.add(ProfilerSymbols.MAX_THREAD_RUNTIME, "60");
 		configuration.add(ProfilerSymbols.IGNORED_STACK_STRINGS, "org.eclipse.jetty java. sun. javassist. ProfilerThread");

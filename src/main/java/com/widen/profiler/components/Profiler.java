@@ -7,9 +7,11 @@ import org.apache.tapestry5.annotations.SessionState;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.ioc.annotations.Symbol;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
 import com.widen.profiler.ProfilerState;
+import com.widen.profiler.ProfilerSymbols;
 import com.widen.profiler.pages.ProfilerResults;
 
 public class Profiler
@@ -30,6 +32,11 @@ public class Profiler
 
 	@Inject
 	private ComponentResources resources;
+
+	@Inject
+	@Symbol(ProfilerSymbols.MONITOR_JOBS)
+	@Property
+	private boolean monitorJobs;
 
 
 	public boolean isProfiling()

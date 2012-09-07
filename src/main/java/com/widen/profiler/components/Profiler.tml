@@ -18,8 +18,10 @@
         </div>
         <div style="float: left; padding-top: 4px;" class="w-formDiv">
             <t:form t:id="options" class="profilerOptionsForm" zone="profilerZone" autofocus="false">
-                <t:checkbox t:id="ignoreJobs" value="profilerState.ignoreJobs" class="w-checkbox"/>
-                <t:label class="w-label" for="ignoreJobs" />
+                <t:if test="monitorJobs">
+                    <t:checkbox t:id="ignoreJobs" value="profilerState.ignoreJobs" class="w-checkbox"/>
+                    <t:label class="w-label" for="ignoreJobs" />
+                </t:if>
             </t:form>
         </div>
     </div>

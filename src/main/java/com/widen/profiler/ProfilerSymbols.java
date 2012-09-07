@@ -9,6 +9,12 @@ public class ProfilerSymbols
 	public static final String APPLICATION_PACKAGE = "profiler.application-package";
 
 	/**
+	 * If you have jobs running (for example with Quartz), enable this and override the JobIdentifier
+	 * service.
+	 */
+	public static final String MONITOR_JOBS = "profiler.monitor-jobs";
+
+	/**
 	 * The time interval between polls (ms).
 	 */
 	public static final String POLLING_INTERVAL = "profiler.polling-interval";

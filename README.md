@@ -1,5 +1,13 @@
 A simple sampling profiler for Tapestry 5 applications.
 
+Control Screenshot:
+
+![Control Screenshot](https://raw.github.com/bdotte/tapestry-profiler/master/control-screenshot.png)
+
+Results Page Screenshot:
+
+![Results Screenshot](https://raw.github.com/bdotte/tapestry-profiler/master/results-screenshot.png)
+
 Available through Maven:
 
 ```
