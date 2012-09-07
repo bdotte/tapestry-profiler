@@ -1,25 +1,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
 
-    <div id="profilerDiv" class="${cssClass}">
-        <div style="float: left; padding-right: 60px;">
+    <div id="profilerDiv" class="w-profiler">
+        <div style="float: left; padding-right: 50px;" class="w-innerDiv">
             <t:zone t:id="profilerZone" update="show">
-                <a href="javascript:void(0);" event="toggleProfiling" zone="profilerZone" style="text-decoration: none;" onclick="$$('.profilerOptionsForm')[0].fire(Tapestry.FORM_PROCESS_SUBMIT_EVENT);">
-					<span style="font-weight: bold;">
+                <a href="javascript:void(0);" zone="profilerZone" style="text-decoration: none;" onclick="$$('.profilerOptionsForm')[0].fire(Tapestry.FORM_PROCESS_SUBMIT_EVENT);">
+					<span style="font-weight: bold;" class="w-span">
 						<t:if test="profiling">
-                            <img src="${asset:stopbutton.png}" />${profileLinkText}
+                            <img src="${asset:stopbutton.png}" class="w-button" style="margin-right: 3px; vertical-align: middle;" />${profileLinkText}
                             <p:else>
-                                <img src="${asset:playbutton.png}" />${profileLinkText}
+                                <img src="${asset:playbutton.png}" class="w-button" style="margin-right: 3px; vertical-align: middle;" />${profileLinkText}
                             </p:else>
                         </t:if>
 					</span>
                 </a>
             </t:zone>
         </div>
-        <div style="float: left; padding-top: 4px;">
+        <div style="float: left; padding-top: 4px;" class="w-formDiv">
             <t:form t:id="options" class="profilerOptionsForm" zone="profilerZone" autofocus="false">
-                <t:checkbox t:id="ignoreJobs" value="profilerState.ignoreJobs"/>
-                <t:label class="white" for="ignoreJobs" />
+                <t:checkbox t:id="ignoreJobs" value="profilerState.ignoreJobs" class="w-checkbox"/>
+                <t:label class="w-label" for="ignoreJobs" />
             </t:form>
         </div>
     </div>

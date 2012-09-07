@@ -2,7 +2,6 @@ package com.widen.profiler.components;
 
 import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.annotations.InjectComponent;
-import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SessionState;
 import org.apache.tapestry5.corelib.components.Form;
@@ -15,10 +14,6 @@ import com.widen.profiler.pages.ProfilerResults;
 
 public class Profiler
 {
-	@Parameter
-	@Property
-	private String cssClass;
-
 	@Property
 	@SessionState
 	private ProfilerState profilerState;

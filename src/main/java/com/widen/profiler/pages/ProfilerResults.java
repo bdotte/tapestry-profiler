@@ -24,6 +24,7 @@ import com.widen.profiler.PerformanceReport;
 import com.widen.profiler.ProfilerState;
 import com.widen.profiler.ProfilerSymbols;
 import com.widen.profiler.services.DAOIdentifier;
+import com.widen.profiler.services.ProfilerAccessController;
 
 @Import(stylesheet = "ProfilerResults.css")
 public class ProfilerResults
@@ -71,9 +72,17 @@ public class ProfilerResults
 	@Symbol(ProfilerSymbols.POLLING_INTERVAL)
 	private int pollingInterval;
 
+	@Inject
+	private ProfilerAccessController profilerAccessController;
+
 
 	void setupRender()
 	{
+		if (!profilerAccessController.hasAccessToResultsPage())
+		{
+			throw new RuntimeException("Access denied");
+		}
+
 		if (hideUninterestingLines == null)
 		{
 			hideUninterestingLines = true;

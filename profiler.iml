@@ -1,188 +1,189 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module relativePaths="true" type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
-    <exclude-output/>
-    <orderEntry type="inheritedJdk"/>
-    <content url="file://$MODULE_DIR$/">
-      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false"/>
-      <excludeFolder url="file://$MODULE_DIR$/build"/>
-      <excludeFolder url="file://$MODULE_DIR$/.gradle"/>
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/build" />
     </content>
-    <orderEntry type="sourceFolder" forTests="false"/>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/commons-lang/commons-lang/2.5/jar/b0236b252e86419eef20c31a44579d2aee2f0a69/commons-lang-2.5.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/commons-lang/commons-lang/2.5/jar/b0236b252e86419eef20c31a44579d2aee2f0a69/commons-lang-2.5.jar!/" />
         </CLASSES>
-        <JAVADOC/>
+        <JAVADOC />
         <SOURCES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/commons-lang/commons-lang/2.5/source/bb75ef699b349b6e02d17d41556cebcd755d07ab/commons-lang-2.5-sources.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/commons-lang/commons-lang/2.5/source/bb75ef699b349b6e02d17d41556cebcd755d07ab/commons-lang-2.5-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry-core/5.3.5/jar/e3fadfd7caa31773137bbe22bcfd87afcb1caa07/tapestry-core-5.3.5.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry-core/5.3.5/jar/e3fadfd7caa31773137bbe22bcfd87afcb1caa07/tapestry-core-5.3.5.jar!/" />
         </CLASSES>
-        <JAVADOC/>
+        <JAVADOC />
         <SOURCES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry-core/5.3.5/source/3c28803b3993fe91a0194d06f802b8a5e0a89ea9/tapestry-core-5.3.5-sources.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry-core/5.3.5/source/3c28803b3993fe91a0194d06f802b8a5e0a89ea9/tapestry-core-5.3.5-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/antlr/antlr/2.7.7/jar/83cd2cd674a217ade95a4bb83a8a14f351f48bd0/antlr-2.7.7.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/antlr/antlr/2.7.7/jar/83cd2cd674a217ade95a4bb83a8a14f351f48bd0/antlr-2.7.7.jar!/" />
         </CLASSES>
-        <JAVADOC/>
-        <SOURCES/>
+        <JAVADOC />
+        <SOURCES />
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.antlr/stringtemplate/3.2.1/jar/59ec8083721eae215c6f3caee944c410d2be34de/stringtemplate-3.2.1.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.antlr/stringtemplate/3.2.1/jar/59ec8083721eae215c6f3caee944c410d2be34de/stringtemplate-3.2.1.jar!/" />
         </CLASSES>
-        <JAVADOC/>
+        <JAVADOC />
         <SOURCES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.antlr/stringtemplate/3.2.1/source/105785687b0c85a7f70cddfdc3a391bcab121872/stringtemplate-3.2.1-sources.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.antlr/stringtemplate/3.2.1/source/105785687b0c85a7f70cddfdc3a391bcab121872/stringtemplate-3.2.1-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.antlr/antlr-runtime/3.3/jar/ccd65b08cbc9b7e90b9facd4d125a133c6f87228/antlr-runtime-3.3.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.antlr/antlr-runtime/3.3/jar/ccd65b08cbc9b7e90b9facd4d125a133c6f87228/antlr-runtime-3.3.jar!/" />
         </CLASSES>
-        <JAVADOC/>
+        <JAVADOC />
         <SOURCES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.antlr/antlr-runtime/3.3/source/544a3068dcf34883f6e512af91407f110522887e/antlr-runtime-3.3-sources.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.antlr/antlr-runtime/3.3/source/544a3068dcf34883f6e512af91407f110522887e/antlr-runtime-3.3-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/commons-codec/commons-codec/1.5/jar/cf993e250ff71804754ec2734a16f23c0be99f70/commons-codec-1.5.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/commons-codec/commons-codec/1.5/jar/cf993e250ff71804754ec2734a16f23c0be99f70/commons-codec-1.5.jar!/" />
         </CLASSES>
-        <JAVADOC/>
+        <JAVADOC />
         <SOURCES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/commons-codec/commons-codec/1.5/source/1100638866461d41fbed0e89d722b161c579fe23/commons-codec-1.5-sources.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/commons-codec/commons-codec/1.5/source/1100638866461d41fbed0e89d722b161c579fe23/commons-codec-1.5-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.slf4j/slf4j-api/1.6.1/jar/6f3b8a24bf970f17289b234284c94f43eb42f0e4/slf4j-api-1.6.1.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.slf4j/slf4j-api/1.6.1/jar/6f3b8a24bf970f17289b234284c94f43eb42f0e4/slf4j-api-1.6.1.jar!/" />
         </CLASSES>
-        <JAVADOC/>
+        <JAVADOC />
         <SOURCES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.slf4j/slf4j-api/1.6.1/source/46a386136c901748e6a3af67ebde6c22bc6b4524/slf4j-api-1.6.1-sources.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.slf4j/slf4j-api/1.6.1/source/46a386136c901748e6a3af67ebde6c22bc6b4524/slf4j-api-1.6.1-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/log4j/log4j/1.2.16/bundle/7999a63bfccbc7c247a9aea10d83d4272bd492c6/log4j-1.2.16.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/log4j/log4j/1.2.16/bundle/7999a63bfccbc7c247a9aea10d83d4272bd492c6/log4j-1.2.16.jar!/" />
         </CLASSES>
-        <JAVADOC/>
+        <JAVADOC />
         <SOURCES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/log4j/log4j/1.2.16/source/bf945d1dc995be7fe64923625f842fbb6bf443be/log4j-1.2.16-sources.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/log4j/log4j/1.2.16/source/bf945d1dc995be7fe64923625f842fbb6bf443be/log4j-1.2.16-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.slf4j/slf4j-log4j12/1.6.1/jar/bd245d6746cdd4e6203e976e21d597a46f115802/slf4j-log4j12-1.6.1.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.slf4j/slf4j-log4j12/1.6.1/jar/bd245d6746cdd4e6203e976e21d597a46f115802/slf4j-log4j12-1.6.1.jar!/" />
         </CLASSES>
-        <JAVADOC/>
+        <JAVADOC />
         <SOURCES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.slf4j/slf4j-log4j12/1.6.1/source/7a26b08b265f55622fa1fed3bda68bbd37a465ba/slf4j-log4j12-1.6.1-sources.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.slf4j/slf4j-log4j12/1.6.1/source/7a26b08b265f55622fa1fed3bda68bbd37a465ba/slf4j-log4j12-1.6.1-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry5-annotations/5.3.5/jar/41fdde8b1abe6e8091f75ef3a0950533742db51e/tapestry5-annotations-5.3.5.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry5-annotations/5.3.5/jar/41fdde8b1abe6e8091f75ef3a0950533742db51e/tapestry5-annotations-5.3.5.jar!/" />
         </CLASSES>
-        <JAVADOC/>
+        <JAVADOC />
         <SOURCES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry5-annotations/5.3.5/source/4264359fb676363ce2eadc31cbdd2d19881549f0/tapestry5-annotations-5.3.5-sources.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry5-annotations/5.3.5/source/4264359fb676363ce2eadc31cbdd2d19881549f0/tapestry5-annotations-5.3.5-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/javax.inject/javax.inject/1/jar/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/javax.inject/javax.inject/1/jar/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar!/" />
         </CLASSES>
-        <JAVADOC/>
+        <JAVADOC />
         <SOURCES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/javax.inject/javax.inject/1/source/a00123f261762a7c5e0ec916a2c7c8298d29c400/javax.inject-1-sources.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/javax.inject/javax.inject/1/source/a00123f261762a7c5e0ec916a2c7c8298d29c400/javax.inject-1-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/plastic/5.3.5/jar/13c63d53f8ef159df93a825602c878003f8634a1/plastic-5.3.5.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/plastic/5.3.5/jar/13c63d53f8ef159df93a825602c878003f8634a1/plastic-5.3.5.jar!/" />
         </CLASSES>
-        <JAVADOC/>
+        <JAVADOC />
         <SOURCES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/plastic/5.3.5/source/b003e01fa52407f459c30e05e1a8af94fffa77b8/plastic-5.3.5-sources.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/plastic/5.3.5/source/b003e01fa52407f459c30e05e1a8af94fffa77b8/plastic-5.3.5-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry-func/5.3.5/jar/f5afffd8a18cc89dd4b61c0f347029a4d5d3233c/tapestry-func-5.3.5.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry-func/5.3.5/jar/f5afffd8a18cc89dd4b61c0f347029a4d5d3233c/tapestry-func-5.3.5.jar!/" />
         </CLASSES>
-        <JAVADOC/>
+        <JAVADOC />
         <SOURCES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry-func/5.3.5/source/39d7ed00aa12c279bd1236a3d161c79a327dd7b7/tapestry-func-5.3.5-sources.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry-func/5.3.5/source/39d7ed00aa12c279bd1236a3d161c79a327dd7b7/tapestry-func-5.3.5-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/javassist/javassist/3.12.1.GA/jar/526633327faa61aee448a519e8a4d53ec3057885/javassist-3.12.1.GA.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/javassist/javassist/3.12.1.GA/jar/526633327faa61aee448a519e8a4d53ec3057885/javassist-3.12.1.GA.jar!/" />
         </CLASSES>
-        <JAVADOC/>
+        <JAVADOC />
         <SOURCES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/javassist/javassist/3.12.1.GA/source/cc64c85182743e0e8166cfc072a4359e54bbc7e9/javassist-3.12.1.GA-sources.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/javassist/javassist/3.12.1.GA/source/cc64c85182743e0e8166cfc072a4359e54bbc7e9/javassist-3.12.1.GA-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry-ioc/5.3.5/jar/a27f4584ef538549082d05347354aff65ef4f9d8/tapestry-ioc-5.3.5.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry-ioc/5.3.5/jar/a27f4584ef538549082d05347354aff65ef4f9d8/tapestry-ioc-5.3.5.jar!/" />
         </CLASSES>
-        <JAVADOC/>
+        <JAVADOC />
         <SOURCES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry-ioc/5.3.5/source/626ab1580e60570b935292068b4399a4318a1618/tapestry-ioc-5.3.5-sources.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry-ioc/5.3.5/source/626ab1580e60570b935292068b4399a4318a1618/tapestry-ioc-5.3.5-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry-json/5.3.5/jar/8acbfd98d73d5de6b154b508ae52c1e0f3bb5b9f/tapestry-json-5.3.5.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry-json/5.3.5/jar/8acbfd98d73d5de6b154b508ae52c1e0f3bb5b9f/tapestry-json-5.3.5.jar!/" />
         </CLASSES>
-        <JAVADOC/>
+        <JAVADOC />
         <SOURCES>
-          <root url="jar:///Users/bdotte/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry-json/5.3.5/source/729f1ded58db480578b804dbd497f13c32d892d7/tapestry-json-5.3.5-sources.jar!/"/>
+          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-13/filestore/org.apache.tapestry/tapestry-json/5.3.5/source/729f1ded58db480578b804dbd497f13c32d892d7/tapestry-json-5.3.5-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
   </component>
-  <component name="ModuleRootManager"/>
 </module>
+
