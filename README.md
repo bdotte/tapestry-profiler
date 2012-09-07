@@ -25,7 +25,7 @@ Or by browsing the repo directly at https://widen.artifactoryonline.com/widen/li
 # Controls & Screenshots
 
 A simple __Profiler__ component is included that can be dropped onto a page (probably some internal
-page or control). Alternatively, you can create your own control that manipulates the ProfilerState
+page or control). Alternatively, you can create your own component that manipulates the ProfilerState
 SSO directly.
 
 ![Control Screenshot](https://raw.github.com/bdotte/tapestry-profiler/master/control-screenshot.png)
@@ -44,11 +44,11 @@ with the appropriate page and report on those separately. We also go on the assu
 with *components* are Tapestry components to color-code those lines. (The definition of a *DAO* is
 configurable.)
 
-From this screenshot, 2 hotspots pop out: DAOImpl.getRelevantCases() and Layout.getTitle(). The
+From this screenshot, 2 hotspots pop out: `DAOImpl.getRelevantCases()` and `Layout.getTitle()`. The
 __Overall__ section is often the most useful, but if there is lots of concurrent use, it isn't always
 clear which lines belong to which requests, because they are all combined together. The key is to look
-for the "cliffs", in this case Board.setupRender() follows into DAOImpl.getRelevantCases(), which turns
-out to be the root problem of that section. Layout.getTitle() is an isolated, separate, problem.
+for the "cliffs", in this case `Board.setupRender()` follows into `DAOImpl.getRelevantCases()`, which turns
+out to be the root problem of that section. `Layout.getTitle()` is an isolated, separate, problem.
 
 # Configuration
 
