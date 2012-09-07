@@ -24,8 +24,9 @@ Or by browsing the repo directly at https://widen.artifactoryonline.com/widen/li
 
 # Controls & Screenshots
 
-A simple control is included that can be dropped onto a page (probably some internal page or component).
-Alternatively, you can create your own control that manipulates the ProfilerState SSO directly.
+A simple __Profiler__ component is included that can be dropped onto a page (probably some internal
+page or control). Alternatively, you can create your own control that manipulates the ProfilerState
+SSO directly.
 
 ![Control Screenshot](https://raw.github.com/bdotte/tapestry-profiler/master/control-screenshot.png)
 
