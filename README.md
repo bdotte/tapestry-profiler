@@ -17,15 +17,59 @@ The latest jar can be retrieved through Maven:
 server: http://widen.artifactoryonline.com/widen/libs-widen-public
 group: com.widen
 artifact: profiler
-version: 1.0-SNAPSHOT
+version: 1.0
 ```
 
 Or by browsing the repo directly at https://widen.artifactoryonline.com/widen/libs-widen-public
 
-# Controls & Screenshots
+# Usage & Screenshots
 
-A simple __Profiler__ component is included that can be dropped onto a page (probably some internal
-page or control). Alternatively, you can create your own component that manipulates the ProfilerState
+Once the jar is on your classpath, ProfilerModule will be autoloaded, and you just need to setup some
+configuration. This example assumes you have Quartz jobs running and that those jobs implement the
+`Job` interface from Quartz 2.0. (By default, the assumption is that you are not running jobs.)
+
+The profiler pages are protected by the `@WhitelistAccessOnly` annotation, meaning you will need to
+override the Tapestry `WhitelistAnalyzer` service to access them outside of running as localhost.
+
+```
+public static void contributeApplicationDefaults(MappedConfiguration<String, Object> configuration)
+{
+    configuration.add(ProfilerSymbols.APPLICATION_PACKAGE, "com.widen.releaseteam");
+    configuration.add(ProfilerSymbols.MONITOR_JOBS, "true");
+    configuration.add(ProfilerSymbols.SMTP_SERVER, "mail.widen.com");
+    configuration.add(ProfilerSymbols.SMTP_FROM_ADDRESS, "noreply@widen.com");
+}
+
+public static void contributeServiceOverride(MappedConfiguration<Class, Object> configuration)
+{
+    configuration.add(JobIdentifier.class, new JobIdentifier()
+    {
+        @Override
+        public boolean isJob(Class stackClass)
+        {
+            return Job.class.isAssignableFrom(stackClass) && !Modifier.isAbstract(stackClass.getModifiers());
+        }
+    });
+
+    configuration.add(WhitelistAnalyzer.class, new WhitelistAnalyzer()
+    {
+        public boolean isRequestOnWhitelist(Request request)
+        {
+            String remoteHost = request.getRemoteHost();
+            return remoteHost.equals("1.2.3.4"); // your internal address
+        }
+    });
+}
+```
+
+In the simplest case, all you need to do is navigate to the profiler page to start/stop profiling:
+
+```
+http://myapp.com/profiler
+```
+
+Alternatively, a simple __Profiler__ component is included that can be dropped onto one of your pages (probably
+some internal page), or you can create your own component that manipulates the ProfilerState
 SSO directly.
 
 ![Control Screenshot](https://raw.github.com/bdotte/tapestry-profiler/master/control-screenshot.png)
@@ -48,7 +92,7 @@ From this screenshot, 2 hotspots pop out: `DAOImpl.getRelevantCases()` and `Layo
 __Overall__ section is often the most useful, but if there is lots of concurrent use, it isn't always
 clear which lines belong to which requests, because they are all combined together. The key is to look
 for the "cliffs", in this case `Board.setupRender()` follows into `DAOImpl.getRelevantCases()`, which turns
-out to be the root problem of that section. `Layout.getTitle()` is an isolated, separate, problem.
+out to be the root problem of that section. `Layout.getTitle()` is a separate problem.
 
 # Configuration
 
@@ -64,6 +108,16 @@ to track jobs separately (similar to how pages are tracked separately).
 Defaults to 60 minutes.
 * __ProfilerSymbols.IGNORED_STACK_STRINGS__ A space-delimited list of strings you want to completely ignore
 when they appear (java. sun. etc.)
+* __ProfilerSymbols.MAIL_SUBJECT__ The subject line if you e-mail a performance report.
+* __ProfilerSymbols.DEFAULT_MAIL_RECIPIENT__ Used to pre-populate the e-mail recipient if is it usually a
+particular address.
+* __ProfilerSymbols.SMTP_SERVER__ Your SMTP server for e-mailing performance reports.
+* __ProfilerSymbols.SMTP_FROM_ADDRESS__ The sender for performance report e-mails.
+* __ProfilerSymbols.SMTP_STARTTLS_REQUIRED__ True to enable mail.smtp.starttls.required.
+* __ProfilerSymbols.SMTP_AUTH__ True to use SMTP authentication with SMTP_USERNAME and SMTP_PASSWORD.
+* __ProfilerSymbols.SMTP_USERNAME__ Your SMTP username.
+* __ProfilerSymbols.SMTP_PASSWORD__ Your SMTP password.
+* __ProfilerSymbols.SMTP_PORT__ Your SMTP port.
 
 Services that can be overridden:
 
@@ -71,9 +125,6 @@ Services that can be overridden:
 be tracked separately. By default, no classes are considered jobs.
 * __DAOIdentifier__ Defines which classes are considered DAOs, so they can be color-coded in the results.
 By default, anything with "dao" anywhere in the fully qualified name is considered a DAO.
-* __ProfilerAccessController__ Since the profiler is designed to be run in a production environment,
-security considerations come into play. Please override this service so that you can deny non-superusers
-access to the results page.
 
 # Contact & License
 

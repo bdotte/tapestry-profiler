@@ -8,33 +8,48 @@ import java.util.Map;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import javax.mail.internet.MimeMessage;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SessionState;
+import org.apache.tapestry5.annotations.WhitelistAccessOnly;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.ioc.annotations.Symbol;
 import org.apache.tapestry5.services.RequestGlobals;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.widen.profiler.PerformanceReport;
 import com.widen.profiler.ProfilerState;
 import com.widen.profiler.ProfilerSymbols;
 import com.widen.profiler.services.DAOIdentifier;
-import com.widen.profiler.services.ProfilerAccessController;
+import com.widen.profiler.services.mail.MailMessageConversionService;
+import com.widen.profiler.services.mail.SmtpTransport;
 
+@WhitelistAccessOnly
 @Import(stylesheet = "ProfilerResults.css")
 public class ProfilerResults
 {
 	private static String[] UNINTERESTING_STRINGS = new String[] { "CollectiveRunner", "ProfilerThread", "PagePermissionCheckImpl", "filter",
 			"QuartzJobExecutorImpl", "buildHibernateFullTextSessionManager" };
 
+	private final Logger log = LoggerFactory.getLogger(ProfilerResults.class);
+
 	@Property
 	@Persist
 	private Boolean hideUninterestingLines;
+
+	@Property
+	private String emailAddress;
+
+	@Property
+	private String actions;
 
 	@SessionState
 	private ProfilerState profilerState;
@@ -73,23 +88,28 @@ public class ProfilerResults
 	private int pollingInterval;
 
 	@Inject
-	private ProfilerAccessController profilerAccessController;
+	@Symbol(ProfilerSymbols.DEFAULT_MAIL_RECIPIENT)
+	private String defaultMailRecipient;
+
+	@Inject
+	private MailMessageConversionService mailMessageConversionService;
+
+	@Inject
+	private SmtpTransport smtpTransport;
+
+	@Property
+	@Persist("flash")
+	private String emailedMessage;
 
 
-	void setupRender()
+	void pageReset()
 	{
-		if (!profilerAccessController.hasAccessToResultsPage())
-		{
-			throw new RuntimeException("Access denied");
-		}
+		emailedMessage = defaultMailRecipient;
 
 		if (hideUninterestingLines == null)
 		{
 			hideUninterestingLines = true;
 		}
-
-		PerformanceReport report = new PerformanceReport(profilerState.getPageCount(), profilerState.getJobCount(), profilerState.getOverallCount(),
-				applicationPackage, pollingInterval);
 	}
 
 	public boolean isHasPageCounts()
@@ -207,5 +227,25 @@ public class ProfilerResults
 	Object onSuccessFromOptions()
 	{
 		return resultsZone.getBody();
+	}
+
+	void onSuccessFromEmailForm()
+	{
+		PerformanceReport report = new PerformanceReport(profilerState.getPageCount(), profilerState.getJobCount(), profilerState.getOverallCount(),
+				applicationPackage, pollingInterval);
+
+		try
+		{
+			MimeMessage message = mailMessageConversionService.convert(report, emailAddress, actions, hideUninterestingLines);
+			smtpTransport.send(message);
+		}
+		catch (Exception e)
+		{
+			log.error("Error sending performance report by e-mail", e);
+			emailedMessage = "Error sending e-mail: " + e.getMessage();
+			return;
+		}
+
+		emailedMessage = "Sent results to " + emailAddress;
 	}
 }

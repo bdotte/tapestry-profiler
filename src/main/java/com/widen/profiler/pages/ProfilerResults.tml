@@ -13,6 +13,9 @@
     <div class="fLeft pr50">
         <h1>Profiler Results</h1>
     </div>
+    <t:if test="emailedMessage">
+        <div>${emailedMessage}</div>
+    </t:if>
     <div class="fLeft pt13 pr100">
         <t:form t:id="options" zone="resultsZone" autofocus="false">
             <t:checkbox t:id="hideUninterestingLines" onchange="$('${options.clientId}').fire(Tapestry.FORM_PROCESS_SUBMIT_EVENT);"/>
@@ -102,6 +105,23 @@
             </tbody>
         </table>
     </t:zone>
+    <br />
+
+    <h2>E-mail Results</h2>
+    <t:form t:id="emailForm" autofocus="false">
+
+        <t:label for="emailAddress" /><br />
+        <t:textfield t:id="emailAddress" value="emailAddress" label="E-mail Address" validate="required,email" />
+        <br />
+
+        <t:label for="doingWhat" /><br />
+        <t:textarea t:id="doingWhat" value="actions" label="What actions were being performed?" style="width:420px; height:120px;" />
+        <br /><br />
+
+        <t:submit value="Send"/>
+
+    </t:form>
+    <br />
 
 </body>
 

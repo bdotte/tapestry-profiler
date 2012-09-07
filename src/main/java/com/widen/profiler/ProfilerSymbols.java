@@ -29,4 +29,49 @@ public class ProfilerSymbols
 	 * If any of these strings are found anywhere in a stack trace line, it is ignored.
 	 */
 	public static final String IGNORED_STACK_STRINGS = "profiler.ignored-stack-strings";
+
+	/**
+	 * The subject line to use for performance reports sent over e-mail.
+	 */
+	public static final String MAIL_SUBJECT = "profiler.mail-subject";
+
+	/**
+	 * The default e-mail address to send performance reports to.
+	 */
+	public static final String DEFAULT_MAIL_RECIPIENT = "profiler.default-mail-recipient";
+
+	/**
+	 * The SMTP server to use to send performance reports.
+	 */
+	public static final String SMTP_SERVER = "profiler.smtp-server";
+
+	/**
+	 * The sender for sending performance reports over SMTP.
+	 */
+	public static final String SMTP_FROM_ADDRESS = "profiler.smtp-from-address";
+
+	/**
+	 * true to set mail.smtp.starttls.required to true when sending a performance report via SMTP.
+	 */
+	public static final String SMTP_STARTTLS_REQUIRED = "profiler.smtp-starttls-required";
+
+	/**
+	 * true to authenticate when sending over SMTP (using the SMTP_USERNAME and SMTP_PASSWORD)
+	 */
+	public static final String SMTP_AUTH = "profiler.smtp-auth";
+
+	/**
+	 * The SMTP username to send performance reports.
+	 */
+	public static final String SMTP_USERNAME = "profiler.smtp-username";
+
+	/**
+	 * The SMTP password to send performance reports.
+	 */
+	public static final String SMTP_PASSWORD = "profiler.smtp-password";
+
+	/**
+	 * The SMTP port to send performance reports.
+	 */
+	public static final String SMTP_PORT = "profiler.smtp-port";
 }

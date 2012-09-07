@@ -7,7 +7,7 @@ import com.widen.profiler.pages.ProfilerResults;
 
 public class PerformanceReport
 {
-	private final static String NEWLINE = System.getProperty("line.separator");
+	public final static String NEWLINE = System.getProperty("line.separator");
 
 	private final String applicationPackage;
 	private final int pollingInterval;
