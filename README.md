@@ -16,8 +16,8 @@ The latest jar can be retrieved through Maven:
 ```
 server: http://widen.artifactoryonline.com/widen/libs-widen-public
 group: com.widen
-artifact: profiler
-version: 1.0
+artifact: tapestry-profiler
+version: 1.1.0-SNAPSHOT
 ```
 
 Or by browsing the repo directly at https://widen.artifactoryonline.com/widen/libs-widen-public
@@ -50,13 +50,19 @@ public static void contributeServiceOverride(MappedConfiguration<Class, Object> 
             return Job.class.isAssignableFrom(stackClass) && !Modifier.isAbstract(stackClass.getModifiers());
         }
     });
+}
 
-    configuration.add(WhitelistAnalyzer.class, new WhitelistAnalyzer()
+@Contribute(ClientWhitelist.class)
+public static void contributeClientWhitelist(OrderedConfiguration<WhitelistAnalyzer> configuration)
+{
+    configuration.add("MySiteWhitelistExample", new WhitelistAnalyzer()
     {
         public boolean isRequestOnWhitelist(Request request)
         {
-            String remoteHost = request.getRemoteHost();
-            return remoteHost.equals("1.2.3.4"); // your internal address
+            // String remoteHost = request.getRemoteHost();
+            // return remoteHost.equals("1.2.3.4"); // your internal address or whatever
+
+            return false;
         }
     });
 }
