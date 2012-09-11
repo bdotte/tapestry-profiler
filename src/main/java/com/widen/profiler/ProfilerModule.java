@@ -1,22 +1,23 @@
 package com.widen.profiler;
 
+import com.widen.profiler.services.mail.*;
 import org.apache.tapestry5.ioc.Configuration;
 import org.apache.tapestry5.ioc.MappedConfiguration;
+import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
 import org.apache.tapestry5.ioc.annotations.Contribute;
 import org.apache.tapestry5.services.ComponentClassResolver;
 import org.apache.tapestry5.services.LibraryMapping;
 import org.apache.tapestry5.services.Request;
+import org.apache.tapestry5.services.security.ClientWhitelist;
 import org.apache.tapestry5.services.security.WhitelistAnalyzer;
 
 import com.widen.profiler.services.DAOIdentifier;
 import com.widen.profiler.services.DefaultDAOIdentifier;
 import com.widen.profiler.services.JobIdentifier;
 import com.widen.profiler.services.JobIdentifierNoop;
-import com.widen.profiler.services.mail.MailMessageConversionService;
-import com.widen.profiler.services.mail.MailMessageConversionServiceImpl;
-import com.widen.profiler.services.mail.SmtpTransport;
-import com.widen.profiler.services.mail.SmtpTransportImpl;
+import com.widen.profiler.services.mail.ProfilerReportToMailMessageConversionService;
+import com.widen.profiler.services.mail.ProfilerReportToMailMessageConversionServiceImpl;
 
 public class ProfilerModule
 {
@@ -44,8 +45,8 @@ public class ProfilerModule
 		binder.bind(DAOIdentifier.class, DefaultDAOIdentifier.class); // override this if your DAOs do not have "dao" in the class name
 		binder.bind(JobIdentifier.class, JobIdentifierNoop.class); // override this if you want stack traces associated with jobs to be identified separately (like pages)
 
-		binder.bind(MailMessageConversionService.class, MailMessageConversionServiceImpl.class);
-		binder.bind(SmtpTransport.class, SmtpTransportImpl.class);
+		binder.bind(ProfilerReportToMailMessageConversionService.class, ProfilerReportToMailMessageConversionServiceImpl.class);
+		binder.bind(ProfilerReportSmtpTransport.class, ProfilerReportSmtpTransportImpl.class);
 	}
 
 	@Contribute(ComponentClassResolver.class)
@@ -54,15 +55,18 @@ public class ProfilerModule
 		configuration.add(new LibraryMapping("profiler", "com.widen.profiler"));
 	}
 
-	public static void contributeServiceOverride(MappedConfiguration<Class, Object> configuration)
-	{
-		configuration.add(WhitelistAnalyzer.class, new WhitelistAnalyzer()
-		{
-			public boolean isRequestOnWhitelist(Request request)
-			{
-				String remoteHost = request.getRemoteHost();
-				return remoteHost.equals("1.2.3.4"); // your internal address or whatever
-			}
-		});
-	}
+    @Contribute(ClientWhitelist.class)
+    public static void contributeClientWhitelist(OrderedConfiguration<WhitelistAnalyzer> configuration)
+    {
+        configuration.add("MySiteWhitelistExample", new WhitelistAnalyzer()
+        {
+            public boolean isRequestOnWhitelist(Request request)
+            {
+                // String remoteHost = request.getRemoteHost();
+                // return remoteHost.equals("1.2.3.4"); // your internal address or whatever
+
+                return false;
+            }
+        });
+    }
 }

@@ -1,4 +1,6 @@
-.gradle/
-out/
-/profiler.iws
+/.gradle
+/build
+/out
+/tapestry-profiler.iws
+/tapestry-profiler.iml
 /gradle.properties

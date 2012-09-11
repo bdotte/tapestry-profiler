@@ -4,7 +4,7 @@ apply plugin: 'idea'
 apply plugin: 'maven'
 
 group = 'com.widen'
-version = '1.0'
+version = '1.1.0-SNAPSHOT'
 
 sourceCompatibility = 1.5
 targetCompatibility = 1.5
@@ -22,21 +22,15 @@ uploadArchives {
 }
 
 dependencies {
-
     compile 'commons-lang:commons-lang:2.5'
-
     compile 'com.sun.mail:javax.mail:1.4.5'
-
-    ext.tapestryVersion = '5.3.5'
-    compile 'org.apache.tapestry:tapestry-core:' + tapestryVersion
-    
+    compile 'org.apache.tapestry:tapestry-core:5.3.4'
 }
 
 sourceSets {
     main {
         java.srcDirs = files('src/main/java')
         resources.srcDirs = files('src/main/java')
-        output.classesDir = file('bin')
     }
 }
 

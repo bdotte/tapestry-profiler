@@ -111,7 +111,7 @@
     <t:form t:id="emailForm" autofocus="false">
 
         <t:label for="emailAddress" /><br />
-        <t:textfield t:id="emailAddress" value="emailAddress" label="E-mail Address" validate="required,email" />
+        <t:textfield t:id="emailAddress" value="emailAddress" label="E-mail Address" validate="required,email" size="80" />
         <br />
 
         <t:label for="doingWhat" /><br />

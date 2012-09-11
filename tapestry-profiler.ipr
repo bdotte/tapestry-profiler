@@ -13,7 +13,11 @@
       <entry name="!?*.groovy" />
       <entry name="!?*.java" />
     </wildcardResourcePatterns>
-    <annotationProcessing enabled="false" useClasspath="true" />
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+    </annotationProcessing>
   </component>
   <component name="CopyrightManager" default="">
     <module2copyright />
@@ -175,7 +179,7 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/profiler.iml" filepath="$PROJECT_DIR$/profiler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tapestry-profiler.iml" filepath="$PROJECT_DIR$/tapestry-profiler.iml" />
     </modules>
   </component>
   <component name="ProjectResources">

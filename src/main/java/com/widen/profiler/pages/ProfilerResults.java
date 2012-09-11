@@ -10,6 +10,8 @@ import java.util.TreeSet;
 
 import javax.mail.internet.MimeMessage;
 
+import com.widen.profiler.services.mail.ProfilerReportToMailMessageConversionService;
+import com.widen.profiler.services.mail.ProfilerReportSmtpTransport;
 import org.apache.commons.lang.StringUtils;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.InjectComponent;
@@ -29,24 +31,32 @@ import com.widen.profiler.PerformanceReport;
 import com.widen.profiler.ProfilerState;
 import com.widen.profiler.ProfilerSymbols;
 import com.widen.profiler.services.DAOIdentifier;
-import com.widen.profiler.services.mail.MailMessageConversionService;
-import com.widen.profiler.services.mail.SmtpTransport;
 
 @WhitelistAccessOnly
 @Import(stylesheet = "ProfilerResults.css")
 public class ProfilerResults
 {
-	private static String[] UNINTERESTING_STRINGS = new String[] { "CollectiveRunner", "ProfilerThread", "PagePermissionCheckImpl", "filter",
-			"QuartzJobExecutorImpl", "buildHibernateFullTextSessionManager" };
-
 	private final Logger log = LoggerFactory.getLogger(ProfilerResults.class);
 
-	@Property
+
+    @Inject
+    @Symbol(ProfilerSymbols.APPLICATION_PACKAGE)
+    private String applicationPackage;
+
+    @Inject
+    @Symbol(ProfilerSymbols.POLLING_INTERVAL)
+    private int pollingInterval;
+
+    @Inject
+    @Symbol(ProfilerSymbols.DEFAULT_MAIL_RECIPIENT)
+    private String defaultMailRecipient;
+
+    @Property
 	@Persist
 	private Boolean hideUninterestingLines;
 
 	@Property
-	private String emailAddress;
+	private String emailAddress = defaultMailRecipient;
 
 	@Property
 	private String actions;
@@ -80,22 +90,10 @@ public class ProfilerResults
 	private DAOIdentifier daoIdentifier;
 
 	@Inject
-	@Symbol(ProfilerSymbols.APPLICATION_PACKAGE)
-	private String applicationPackage;
+	private ProfilerReportToMailMessageConversionService profilerReportToMailMessageConversionService;
 
 	@Inject
-	@Symbol(ProfilerSymbols.POLLING_INTERVAL)
-	private int pollingInterval;
-
-	@Inject
-	@Symbol(ProfilerSymbols.DEFAULT_MAIL_RECIPIENT)
-	private String defaultMailRecipient;
-
-	@Inject
-	private MailMessageConversionService mailMessageConversionService;
-
-	@Inject
-	private SmtpTransport smtpTransport;
+	private ProfilerReportSmtpTransport profilerReportSmtpTransport;
 
 	@Property
 	@Persist("flash")
@@ -236,8 +234,8 @@ public class ProfilerResults
 
 		try
 		{
-			MimeMessage message = mailMessageConversionService.convert(report, emailAddress, actions, hideUninterestingLines);
-			smtpTransport.send(message);
+			MimeMessage message = profilerReportToMailMessageConversionService.convert(report, emailAddress, actions, hideUninterestingLines);
+			profilerReportSmtpTransport.send(message);
 		}
 		catch (Exception e)
 		{

@@ -15,13 +15,13 @@ import org.apache.tapestry5.ioc.annotations.Symbol;
 import com.widen.profiler.PerformanceReport;
 import com.widen.profiler.ProfilerSymbols;
 
-public class MailMessageConversionServiceImpl implements MailMessageConversionService
+public class ProfilerReportToMailMessageConversionServiceImpl implements ProfilerReportToMailMessageConversionService
 {
 	private final String mailSubject;
 	private final String fromAddress;
 
-	public MailMessageConversionServiceImpl(@Inject @Symbol(ProfilerSymbols.MAIL_SUBJECT) String mailSubject,
-	                                        @Inject @Symbol(ProfilerSymbols.SMTP_FROM_ADDRESS) String fromAddress)
+	public ProfilerReportToMailMessageConversionServiceImpl(@Inject @Symbol(ProfilerSymbols.MAIL_SUBJECT) String mailSubject,
+                                                            @Inject @Symbol(ProfilerSymbols.SMTP_FROM_ADDRESS) String fromAddress)
 	{
 		this.mailSubject = mailSubject;
 		this.fromAddress = fromAddress;

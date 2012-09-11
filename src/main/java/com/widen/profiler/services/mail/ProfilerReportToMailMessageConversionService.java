@@ -5,7 +5,7 @@ import javax.mail.internet.MimeMessage;
 
 import com.widen.profiler.PerformanceReport;
 
-public interface MailMessageConversionService
+public interface ProfilerReportToMailMessageConversionService
 {
 	/**
 	 * Create a JavaMail MimeMessage object from a {@link PerformanceReport} object.
