@@ -3,7 +3,7 @@ package com.widen.profiler.services.mail;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
-public interface SmtpTransport
+public interface ProfilerReportSmtpTransport
 {
 
 	/**

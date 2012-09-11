@@ -20,9 +20,9 @@ import com.widen.profiler.ProfilerSymbols;
 /**
  * Use JavaMail to put a MimeMessage onto the wire using SMTP.
  */
-public class SmtpTransportImpl implements SmtpTransport
+public class ProfilerReportSmtpTransportImpl implements ProfilerReportSmtpTransport
 {
-	private final Logger log = LoggerFactory.getLogger(SmtpTransportImpl.class);
+	private final Logger log = LoggerFactory.getLogger(ProfilerReportSmtpTransportImpl.class);
 
 	private final String server;
 	private final Boolean startTlsRequired;
@@ -31,12 +31,12 @@ public class SmtpTransportImpl implements SmtpTransport
 	private final String password;
 	private final Integer port;
 
-	public SmtpTransportImpl(@Inject @Symbol(ProfilerSymbols.SMTP_SERVER) String server,
-	                         @Inject @Symbol(ProfilerSymbols.SMTP_STARTTLS_REQUIRED) Boolean startTlsRequired,
-	                         @Inject @Symbol(ProfilerSymbols.SMTP_AUTH) boolean auth,
-	                         @Inject @Symbol(ProfilerSymbols.SMTP_USERNAME) String username,
-	                         @Inject @Symbol(ProfilerSymbols.SMTP_PASSWORD) String password,
-	                         @Inject @Symbol(ProfilerSymbols.SMTP_PORT) Integer port)
+	public ProfilerReportSmtpTransportImpl(@Inject @Symbol(ProfilerSymbols.SMTP_SERVER) String server,
+                                           @Inject @Symbol(ProfilerSymbols.SMTP_STARTTLS_REQUIRED) Boolean startTlsRequired,
+                                           @Inject @Symbol(ProfilerSymbols.SMTP_AUTH) boolean auth,
+                                           @Inject @Symbol(ProfilerSymbols.SMTP_USERNAME) String username,
+                                           @Inject @Symbol(ProfilerSymbols.SMTP_PASSWORD) String password,
+                                           @Inject @Symbol(ProfilerSymbols.SMTP_PORT) Integer port)
 	{
 		this.server = server;
 		this.startTlsRequired = startTlsRequired;
