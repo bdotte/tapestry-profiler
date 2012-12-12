@@ -48,13 +48,13 @@ public class ProfilerThread implements Runnable
 		{
 			Map<Thread,StackTraceElement[]> allTraces = Thread.getAllStackTraces();
 
-			for (Thread thread : allTraces.keySet())
+			for (Map.Entry<Thread,StackTraceElement[]> entry: allTraces.entrySet())
 			{
 				String pageName = null;
 				String jobName = null;
 
 				Map<String, Integer> classCountForThread = new HashMap<String, Integer>();
-				for (StackTraceElement stackElement : allTraces.get(thread))
+				for (StackTraceElement stackElement : entry.getValue())
 				{
 					Class clazz = getStackElementClass(stackElement);
 					String className = clazz == null ? stackElement.getClassName() : clazz.getName();
@@ -141,13 +141,16 @@ public class ProfilerThread implements Runnable
 
 	private void mergeCounts(Map<String, Integer> aggregateCount, Map<String, Integer> countToAdd)
 	{
-		for (String key : countToAdd.keySet())
+		int previous = 0;
+
+		for (Map.Entry<String, Integer> entry : countToAdd.entrySet())
 		{
-			if (!aggregateCount.containsKey(key))
+			if (!aggregateCount.containsKey(entry.getKey()))
 			{
-				aggregateCount.put(key, 0);
+				previous = aggregateCount.get(entry.getKey());
 			}
-			aggregateCount.put(key, aggregateCount.get(key) + countToAdd.get(key));
+
+			aggregateCount.put(entry.getKey(), previous + entry.getValue());
 		}
 	}
 

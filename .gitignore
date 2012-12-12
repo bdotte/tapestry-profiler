@@ -4,3 +4,4 @@
 /tapestry-profiler.iws
 /tapestry-profiler.iml
 /gradle.properties
+*.ipr
