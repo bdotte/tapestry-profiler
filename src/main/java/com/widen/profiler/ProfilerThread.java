@@ -141,16 +141,14 @@ public class ProfilerThread implements Runnable
 
 	private void mergeCounts(Map<String, Integer> aggregateCount, Map<String, Integer> countToAdd)
 	{
-		int previous = 0;
-
 		for (Map.Entry<String, Integer> entry : countToAdd.entrySet())
 		{
-			if (!aggregateCount.containsKey(entry.getKey()))
+			String key = entry.getKey();
+			if (!aggregateCount.containsKey(key))
 			{
-				previous = aggregateCount.get(entry.getKey());
+				aggregateCount.put(key, 0);
 			}
-
-			aggregateCount.put(entry.getKey(), previous + entry.getValue());
+			aggregateCount.put(key, aggregateCount.get(key) + countToAdd.get(key));
 		}
 	}
 
